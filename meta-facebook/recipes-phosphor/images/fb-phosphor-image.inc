@@ -16,10 +16,12 @@ OBMC_IMAGE_EXTRA_INSTALL:append = "\
         '', d)} \
     curl \
     dbus-top \
+    iproute2 \
     jq \
     strace \
-    tmux \
     tcpdump \
+    tmux \
+    usbutils \
     wget \
     "
 OBMC_IMAGE_EXTRA_INSTALL:append:mf-fb-secondary-emmc = " \

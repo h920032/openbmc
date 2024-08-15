@@ -11,10 +11,11 @@ DEPENDS += " \
         gpioplus \
         cli11 \
         "
-SRCREV = "8df95be4e93cd2f2596a8acb1a79cdc0834da26e"
+SRCREV = "670d92a775a14148b582c479f1f5705e94167c8f"
 PACKAGECONFIG ??= ""
 # Meson configure option to enable/disable max31785-msl
 PACKAGECONFIG[max31785-msl] = "-Denable-max31785-msl=true, -Denable-max31785-msl=false"
+PACKAGECONFIG[use-dev-path] = "-Dalways-use-devpath=enabled, -Dalways-use-devpath=disabled"
 PV = "1.0+git${SRCPV}"
 PR = "r1"
 

@@ -1,5 +1,4 @@
 EXTRA_OEMESON:append = " \
-    -Dinsecure-tftp-update=enabled \
     -Dibm-management-console=enabled \
     -Dredfish-dump-log=enabled \
     -Dredfish-oem-manager-fan-data=disabled \
@@ -12,6 +11,7 @@ EXTRA_OEMESON:append = " \
 EXTRA_OEMESON:append:p10bmc = " \
     -Dkvm=disabled \
     -Dvm-websocket=disabled \
+    -Dredfish-allow-deprecated-power-thermal=disabled \
 "
 PACKAGECONFIG:remove:p10bmc = "mutual-tls-auth"
 
