@@ -9,7 +9,7 @@ DEPENDS += "openssl"
 DEPENDS += "phosphor-logging"
 DEPENDS += "sdbusplus"
 DEPENDS += "stdplus"
-SRCREV = "d4554f2a17686e36a77ac4a3619efd685fcbb15c"
+SRCREV = "55d960bfe72a2e94707e332b7acf8561f2a55680"
 PV = "0.1+git${SRCPV}"
 PR = "r1"
 

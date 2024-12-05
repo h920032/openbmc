@@ -9,7 +9,7 @@ DEPENDS += "phosphor-dbus-interfaces"
 DEPENDS += "boost"
 DEPENDS += "nss-pam-ldapd"
 DEPENDS += "systemd"
-SRCREV = "46e773a9d0b89ec223b6f174f41326f630799fd3"
+SRCREV = "34e6ccd405dfe9bd43d10cb8f0053598134688e3"
 PV = "1.0+git${SRCPV}"
 PR = "r1"
 
@@ -43,6 +43,7 @@ FILES:${PN} += " \
 "
 
 USERADD_PACKAGES = "${PN} phosphor-ldap"
+RDEPENDS:${PN}:append:df-google-authenticator-libpam = " pam-google-authenticator google-authenticator-libpam"
 
 PACKAGE_BEFORE_PN = "phosphor-ldap"
 DBUS_PACKAGES = "${USERADD_PACKAGES}"

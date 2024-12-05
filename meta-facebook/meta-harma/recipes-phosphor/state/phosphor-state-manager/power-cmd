@@ -5,7 +5,7 @@ source /usr/libexec/fb-common-functions
 
 # Power Good Status
 power_status() {
-    if [ "$(get_gpio "host0-ready")" -eq 1 ]; then
+    if [ "$(get_gpio "host0-ready")" -eq 1 ] && [ "$(get_gpio "power-card-enable")" -eq 0 ] ; then
         echo "on"
     else
         echo "off"
@@ -32,9 +32,6 @@ graceful_power_off() {
 
         # wait host power off
         sleep 10
-        if [ "$(power_status)" == "on" ]; then
-            force_power_off
-        fi
     fi
 }
 
@@ -58,5 +55,14 @@ power_on() {
             fi
         done
     fi
+    return 0
+}
+
+# Host reset
+power_reset() {
+    set_gpio reset-control 0
+    sleep 1
+    set_gpio reset-control 1
+    sleep 1
     return 0
 }
