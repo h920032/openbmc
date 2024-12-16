@@ -64,7 +64,7 @@ do_install() {
     oe_runmake DESTDIR=${D} install
 
     install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/sfcb.service ${D}${systemd_unitdir}/system/sblim-sfcb.service
+    install -m 0644 ${UNPACKDIR}/sfcb.service ${D}${systemd_unitdir}/system/sblim-sfcb.service
 
     install -d ${D}${sysconfdir}/init.d
     mv ${D}${sysconfdir}/init.d/sfcb ${D}${sysconfdir}/init.d/sblim-sfcb
@@ -86,3 +86,8 @@ FILES:${PN} += "${libdir}/sfcb ${datadir}/sfcb"
 FILES:${PN}-dbg += "${libdir}/sfcb/.debug"
 
 RDEPENDS:${PN} = "perl bash"
+
+# This one is reproducible only on 32bit MACHINEs
+# http://errors.yoctoproject.org/Errors/Details/766970/
+# sblim-sfcb-1.4.9/trace.c:214:18: error: passing argument 1 of 'gmtime_r' from incompatible pointer type [-Wincompatible-pointer-types]
+CFLAGS += "-Wno-error=incompatible-pointer-types"

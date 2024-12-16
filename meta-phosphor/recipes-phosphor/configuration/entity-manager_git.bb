@@ -11,7 +11,7 @@ DEPENDS = "boost \
            valijson \
            phosphor-dbus-interfaces \
 "
-SRCREV = "14debea1086b867d718a9cdfca0d9f52b6bd8bce"
+SRCREV = "1642b65a55de6779c3adf1a8df5d25689c5b9475"
 PACKAGECONFIG ??= "ipmi-fru"
 
 PACKAGECONFIG[ipmi-fru] = "-Dfru-device=true, -Dfru-device=false, i2c-tools,"
@@ -41,7 +41,7 @@ EXTRA_ENTITY_MANAGER_PACKAGES = " \
     "
 
 do_install:append() {
-    install -D ${WORKDIR}/blocklist.json ${D}${datadir}/${BPN}/blacklist.json
+    install -D ${UNPACKDIR}/blocklist.json ${D}${datadir}/${BPN}/blacklist.json
 }
 
 FILES:${PN} += " \
